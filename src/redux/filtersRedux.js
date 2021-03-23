@@ -31,16 +31,15 @@ export default function reducer(statePart = [], action = {}) {
       };
     // TODO - handle other action types
     case ADD_TAGS:
-      // if(state tag) {
       return {
         ...statePart,
-        // tags: [...statePart.tags, action.payload],
+        tags: action.payload,
       };
       // } else break;
     case REMOVE_TAGS:
       return {
         ...statePart,
-        // tags: 
+        tags: action.payload, 
       };
     default:
       return statePart;
