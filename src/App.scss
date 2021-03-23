@@ -1,7 +1,10 @@
-.route-wrapper {
-    position: relative;
-}
+.switchWrapper {
+  position: relative;
 
-.route-wrapper > div {
-  position: absolute;
+  > :first-child ~ * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }

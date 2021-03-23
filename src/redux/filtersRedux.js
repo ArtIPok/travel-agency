@@ -22,6 +22,7 @@ export const removeTags = payload => ({payload, type: REMOVE_TAGS});
 
 // reducer
 export default function reducer(statePart = [], action = {}) {
+
   switch (action.type) {
     case CHANGE_PHRASE:
       return {
@@ -30,14 +31,16 @@ export default function reducer(statePart = [], action = {}) {
       };
     // TODO - handle other action types
     case ADD_TAGS:
+      // if(state tag) {
       return {
         ...statePart,
-        addTags: action.payload,
+        // tags: [...statePart.tags, action.payload],
       };
+      // } else break;
     case REMOVE_TAGS:
       return {
         ...statePart,
-        removeTags: action.payload,
+        // tags: 
       };
     default:
       return statePart;

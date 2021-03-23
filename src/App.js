@@ -4,6 +4,8 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import {AnimatedSwitch} from 'react-router-transition';
 import PropTypes from 'prop-types';
 
+import styles from './App.scss';
+
 import MainLayout from './components/layout/MainLayout/MainLayout';
 
 import Home from './components/views/Home/Home';
@@ -45,9 +47,10 @@ class App extends React.Component {
         <MainLayout>
           <AnimatedSwitch 
             location={location}
-            atEnter={{opacity: 0}}
+            atEnter={{opacity: 0, marginTop: 200}}
             atLeave={{opacity: 0}}
-            atActive={{opacity: 1}}
+            atActive={{opacity: 1, marginTop: 0}}
+            className={styles.switchWrapper}
           >
             <Route exact path='/' component={Home} />
             <Route exact path='/trips' component={Trips} />
