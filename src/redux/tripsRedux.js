@@ -14,8 +14,19 @@ export const getFilteredTrips = ({trips, filters}) => {
   // TODO - filter by duration
 
   // TODO - filter by tags
+  const tagsFilter = (filters, output) => {
+    if (filters.tags.length) {
+      for (let tag of filters.tags) {
+        const tagIndex = (trip => trip.tags.indexOf(tag) >= 0);
+        output = output.filter(tagIndex);
+      }
+    }
+    return output;
+  };
+  
+  output = tagsFilter(filters, output);
 
-  // TODO - sort by cost descending (most expensive goes first)
+  // TODO - sort by cost descendia``1 `ng (most expensive goes first)
 
   return output;
 };
@@ -38,7 +49,6 @@ export const getTripsForCountry = ({trips}, countryCode) => {
   console.log('filtering trips by countryCode:', countryCode, filtered);
   return filtered.length ? filtered : [{error: true}];
 };
-
 /* ACTIONS */
 
 /*
