@@ -5,7 +5,7 @@ import styles from './OrderOption.scss';
 import Icon from '../../common/Icon/Icon';
 import { formatPrice } from '../../../utils/formatPrice';
 
-const OrderOptionIcons = ({required, setOptionValue, values}) => (
+const OrderOptionIcons = ({required, setOptionValue, values, currentValue}) => (
   <div className={styles.component}>
     {required ? '' : (
       <div
@@ -17,9 +17,10 @@ const OrderOptionIcons = ({required, setOptionValue, values}) => (
       </div>
     )}
     {values.map((value) => {
+      const styleIconValue = styles.icon && currentValue === value.id;
       return(
         <div
-          // className={styles.icon ? styles.iconActive : }
+          className={styleIconValue ? styles.iconActive : ''}
           key={value.id}
           onClick={() => setOptionValue(value.id)}
         >
@@ -36,6 +37,7 @@ OrderOptionIcons.propTypes = {
   required: PropTypes.bool,
   values: PropTypes.array,
   setOptionValue: PropTypes.func,
+  currentValue: PropTypes.string,
 };
 
 export default OrderOptionIcons;
