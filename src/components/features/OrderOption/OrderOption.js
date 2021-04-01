@@ -6,7 +6,7 @@ import OrderOptionDropdown from './OrderOptionDropdown';
 import OrderOptionIcons from './OrderOptionIcons';
 import OrderOptionNumber from './OrderOptionNumber';
 import OrderOptionCheckboxes from './OrderOptionCheckboxes';
-// import { setOrderOption } from '../../../redux/orderRedux';
+import { setOrderOption } from '../../../redux/orderRedux';
 import OrderOptionText from './OrderOptionText';
 import OrderOptionDate from './OrderOptionDate';
 
@@ -19,7 +19,7 @@ const optionTypes = {
   date: OrderOptionDate,
 };
 
-const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
+const OrderOption = ({name, type, id, ...otherProps}) => {
   const OptionComponent = optionTypes[type];
   if(!OptionComponent){
     return null;
