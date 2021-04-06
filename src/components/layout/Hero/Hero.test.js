@@ -12,12 +12,12 @@ describe('Component Hero', () => {
   });
   it('should render correct title and image', () => {
     const expectedTitle = 'Lorem ipsum';
-    const expectImage = 'image.jpg';
-    const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectImage} />);
+    const expectedImage = 'image.jpg';
+    const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} />);
 
     const renderedTitle = component.find('.title').text();
     expect(renderedTitle).toEqual(expectedTitle);
-    expect(component.find('.image').prop('src')).toEqual(expectImage);
+    expect(component.find('.image').prop('src')).toEqual(expectedImage);
   });
   it('renders correct classNames', () => {
     const mockVariants = 'small dummy';

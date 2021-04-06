@@ -1,12 +1,12 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import { shallow } from 'enzyme';
 import TripSummary from './TripSummary';
 
 describe('Component TripSummary', () => {
   it('should generated correctly address', () => {
     const expectedAdress = 'abc';
-    const component = mount(<TripSummary id={expectedAdress} />);
-    expect(component.find).prop('to').toEqual(expectedAdress);
+    const component = shallow(<TripSummary id={expectedAdress} />);
+    expect(component.find('/trip/').prop('to')).toEqual(expectedAdress);
   });
 /* it('should has correctly src and alt', () => {
     const expectedSrc = props.src;
