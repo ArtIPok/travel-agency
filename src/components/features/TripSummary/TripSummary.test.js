@@ -47,4 +47,20 @@ describe('Component TripSummary', () => {
     const component = shallow(<TripSummary {...props} />);
     expect(component).toBeTruthy();
   });
+
+  it('should render in correct order in span for 3 tags', () => {
+    const tags = ['tag1', 'tag2', 'tag3'];
+
+    const component = shallow(<TripSummary tags={tags} />);
+    expect(component.find('.tags').find('span').at(0).text()).toEqual('tag1');
+    expect(component.find('.tags').find('span').at(1).text()).toEqual('tag2');
+    expect(component.find('.tags').find('span').at(2).text()).toEqual('tag3');
+  });
+
+  it('should render div with class tags only when tags is not false or empty', () => {
+    const tags = [tags];
+
+    const component = shallow(<TripSummary tags={tags} />);
+    expect(component).toBeTruthy();
+  });
 });
