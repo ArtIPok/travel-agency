@@ -34,11 +34,17 @@ describe('Component TripSummary', () => {
     expect(component.find('.details').find('span').at(0).text()).toEqual('2 days');
     expect(component.find('.details').find('span').at(1).text()).toEqual('from 123$');
   });
-/*
-  it('lack any props with crashing', () => {
-    const expectedSrc = props.src;
 
-    const component = mount(<TripSummary />);
-    expect(component.find).prop('to').toEqual(expectedAdress);
-  }); */
+  it('lack any props with crashing', () => {
+    const props = {
+      id: 'abc',
+      image: 'test',
+      name: 'test',
+      cost: '123$',
+      days: 2,
+    };
+
+    const component = shallow(<TripSummary {...props} />);
+    expect(component).toBeTruthy();
+  });
 });
