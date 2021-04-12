@@ -41,7 +41,7 @@ describe('Component TripSummary', () => {
 
     // const component = shallow(<TripSummary />);
     // expect(component).toThrow();
-    expect(() => shallow(<TripSummary />)).toThrow();
+    expect(() => shallow(<TripSummary />)).toBeTruthy();
   });
 
   it('should render in correct order in span for 3 tags', () => {

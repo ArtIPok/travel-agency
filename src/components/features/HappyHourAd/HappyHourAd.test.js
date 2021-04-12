@@ -7,7 +7,7 @@ const params = {
   promoDesription: '.promoDescription',
 };
 
-xdescribe('Component HappyHourAd', () => {
+describe('Component HappyHourAd', () => {
   it('should render without crashing', () => {
     const component = shallow(<HappyHourAd />);
     expect(component).toBeTruthy();
@@ -16,7 +16,7 @@ xdescribe('Component HappyHourAd', () => {
   it('should render heading and desription', () => {
     const component = shallow(<HappyHourAd />);
 
-    expect(component.exists(params.title).toEqual(true));
-    expect(component.exists(params.promoDescription).toEqual(true));
+    expect(component.exists(params.title)).toEqual(true);
+    expect(component.exists(params.promoDescription)).toEqual(true);
   });
 });
