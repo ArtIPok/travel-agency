@@ -25,7 +25,7 @@ const TripSummary = ({id, image = '', name = '', cost = '', days = 0, tags = []}
 );
 
 TripSummary.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   image: PropTypes.string,
   name: PropTypes.string,
   intro: PropTypes.string,
