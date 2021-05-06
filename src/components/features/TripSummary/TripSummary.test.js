@@ -29,6 +29,7 @@ describe('Component TripSummary', () => {
       name: 'Test Trip',
       days: 2,
       cost: '123$',
+
     };
 
     const component = shallow(<TripSummary {...props} />);
@@ -38,24 +39,26 @@ describe('Component TripSummary', () => {
   });
 
   it('lack of any props with crashing', () => {
-
-    // const component = shallow(<TripSummary />);
-    // expect(component).toThrow();
-    expect(() => shallow(<TripSummary />)).toBeTruthy();
+    expect(() => shallow(<TripSummary />)).toThrow();
   });
 
   it('should render in correct order in span for 3 tags', () => {
-    const tags = ['tag1', 'tag2', 'tag3'];
+    const tags = ['tag0', 'tag1', 'tag2'];
 
     const component = shallow(<TripSummary tags={tags} />);
-    expect(component.find('.tags').find('span').at(0).text()).toEqual('tag1');
+    
+    let id;
+    for(id = 0; id <= 2; id++) {
+      expect(component.find('.tags').find('span').at(id).text()).toEqual('tag' + id);
+    }
+    /*expect(component.find('.tags').find('span').at(0).text()).toEqual('tag1');
     expect(component.find('.tags').find('span').at(1).text()).toEqual('tag2');
-    expect(component.find('.tags').find('span').at(2).text()).toEqual('tag3');
+    expect(component.find('.tags').find('span').at(2).text()).toEqual('tag3');*/
   });
 
   it('should render div with class tags only when tags is not false or empty', () => {
 
     const component = shallow(<TripSummary tags={[]} />);
-    expect(component).toBeTruthy();
+    expect(component.find('.tags').children().length).toEqual(0);
   });
 });
