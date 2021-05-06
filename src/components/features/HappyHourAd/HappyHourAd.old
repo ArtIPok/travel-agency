@@ -48,7 +48,7 @@ xdescribe('Component HappyHourAd with mocked Date', () => {
   it('should show correct at 11:57:58', () => {
     global.Date = mockDate;
   
-    const component = shallow(<HappyHourAd {...mockProps} />);
+    const component = shallow(<HappyHourAd />);
     const renderedTime = component.find(select.descr).text();
     expect(renderedTime).toEqual('122');
   

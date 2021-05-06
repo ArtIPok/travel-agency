@@ -2,22 +2,21 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import OrderOption from './OrderOption';
 
-xdescribe('Component OrderOption', () => {
+describe('Component OrderOption', () => {
   it('should render without crashing', () => {
-    const component = shallow(<OrderOption type={'tst'} name={'test'} />);
+    const component = shallow(<OrderOption name={'NAME'} type={'TYPE'} />);
     expect(component).toBeTruthy();
   });
 
   it('should return empty object if called without required props', () => {
-    const component = shallow(<OrderOption />);
+    const component = shallow(<OrderOption name={'NAME'} />);
     expect(component).toEqual({});
   });
 
   it('should render correct title', () => {
-    const expectedTitle = 'Lorem ipsum';
-    const component = shallow(<OrderOption name={expectedTitle} />);
+    const expectedName = 'Lorem ipsum';
+    const component = shallow(<OrderOption name={expectedName} />);
   
-    const renderedTitle = component.find('.name').text();
-    expect(renderedTitle).toEqual(expectedTitle);
+    expect(component.text()).toEqual(expectedName);
   });
 });
