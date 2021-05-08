@@ -105,7 +105,7 @@ for(let type in optionTypes){
         it('should run setOrderOption function on change', () => {
           renderedSubcomponent.find('select').simulate('change', {currentTarget: {value: testValue}});
           expect(mockSetOrderOption).toBeCalledTimes(1);
-          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+          expect(mockSetOrderOption).toBeCalledWith( { [mockProps.id]: testValue } );
         });
         break;
       }
