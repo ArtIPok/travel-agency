@@ -5,12 +5,12 @@ import styles from './OrderOption.scss';
 import Icon from '../../common/Icon/Icon';
 import { formatPrice } from '../../../utils/formatPrice';
 
-const OrderOptionIcons = ({required, setOptionValue, values, currentValue}) => (
+const OrderOptionIcons = ({required, setOrderOption, values, currentValue}) => (
   <div className={styles.component}>
     {required ? '' : (
       <div
         className={styles.icon}
-        onClick={() => setOptionValue('')}
+        onClick={() => setOrderOption('')}
       >
         <Icon name={'times-circle'} />
         none
@@ -21,7 +21,7 @@ const OrderOptionIcons = ({required, setOptionValue, values, currentValue}) => (
         <div
           className={currentValue === value.id ? styles.iconActive : styles.icon}
           key={value.id}
-          onClick={() => setOptionValue(value.id)}
+          onClick={() => setOrderOption(value.id)}
         >
           <Icon name={value.icon} />
           {value.name} ({formatPrice(value.price)})
@@ -35,7 +35,7 @@ const OrderOptionIcons = ({required, setOptionValue, values, currentValue}) => (
 OrderOptionIcons.propTypes = {
   required: PropTypes.bool,
   values: PropTypes.array,
-  setOptionValue: PropTypes.func,
+  setOrderOption: PropTypes.func,
   currentValue: PropTypes.string,
 };
 

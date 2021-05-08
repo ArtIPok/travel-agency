@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 // import styles from './OrderOption.scss';
 // import { formatPrice } from '../../../utils/formatPrice';
 
-const OrderOptionText = ({setOptionValue}) => (
+const OrderOptionText = ({setOrderOption}) => (
   <input 
     type = 'text'
-    onChange = {event => setOptionValue(event.currentTarget.value)}
+    onChange = {event => setOrderOption(event.currentTarget.value)}
   >
   </input>
 );
 
 OrderOptionText.propTypes = {
-  setOptionValue: PropTypes.func,
+  setOrderOption: PropTypes.func,
 };
 
 export default OrderOptionText;

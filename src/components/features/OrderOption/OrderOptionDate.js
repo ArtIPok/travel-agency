@@ -6,19 +6,19 @@ import PropTypes from 'prop-types';
 // CSS Modules, react-datepicker-cssmodules.css
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-const OrderOptionDate = ({setOptionValue}) => {
+const OrderOptionDate = ({setOrderOption}) => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <DatePicker selected={startDate} onChange={date => {
       setStartDate(date);
-      setOptionValue(date);
+      setOrderOption(date);
     }} 
     />
   );
 };
 
 OrderOptionDate.propTypes = {
-  setOptionValue: PropTypes.func,
+  setOrderOption: PropTypes.func,
 };
 
 export default OrderOptionDate;
