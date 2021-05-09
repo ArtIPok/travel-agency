@@ -114,14 +114,10 @@ for(let type in optionTypes){
         it('contains div', () => {
           const div = renderedSubcomponent.find('div');
           expect(div.length).toBe(4);
-        
+          // console.log('!', renderedSubcomponent.debug());
+
           const icon = div.find('.icon').length;
           expect(icon).toBe(1);
-        
-          const options = div.find('option').not('[value=""]');
-          expect(options.length).toBe(mockProps.values.length);
-          expect(options.at(0).prop('value')).toBe(mockProps.values[0].id);
-          expect(options.at(1).prop('value')).toBe(mockProps.values[1].id);
         });
         it('should run setOrderOption function on click', () => {
           renderedSubcomponent.find('.icon').simulate('click');

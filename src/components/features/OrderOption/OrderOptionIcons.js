@@ -9,7 +9,7 @@ const OrderOptionIcons = ({required, setOrderOption, values, currentValue}) => (
   <div className={styles.component}>
     {required ? '' : (
       <div
-        className={styles.icon}
+        // className={styles.icon}
         onClick={() => setOrderOption('')}
       >
         <Icon name={'times-circle'} />
