@@ -23,21 +23,21 @@ class HappyHourAd extends React.Component {
   }
 
   render(){
-    const { title, promoDescription } = this.props;
+    const { promoDescription } = this.props;
     const countdownTime = this.getCountdownTime();
 
     if (countdownTime > 23 * 60 * 60 ) {
       return(
-        <div>
-          <h3 className={styles.title}>{title}</h3>
-          <div className='promoDescription'>{promoDescription}</div>
+        <div className={styles.component}>
+          <h3 className={styles.title}>Happy Hour</h3>
+          <div className={styles.promoDescription}>{promoDescription}</div>
         </div>
       );
     } else {
       return(
-        <div>
-          <h3 className={styles.title}>{title}</h3>
-          <div className='promoDescription'>{this.getCountdownTime()}</div>
+        <div className={styles.component}>
+          <h3 className={styles.title}>Happy Hour</h3>
+          <div className={styles.promoDescription}>{this.getCountdownTime()}</div>
         </div>
       );
     }
