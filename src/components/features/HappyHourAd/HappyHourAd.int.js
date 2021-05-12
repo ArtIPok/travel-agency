@@ -9,33 +9,9 @@ const select = {
 };
 
 const mockProps = {
-  title: 'Happy Hour',
+  title: 'Title component',
   promoDescription: 'Lellum pollelum',
 };
-
-const currentTime = Date.now();
-
-describe(' Component HappyHourAd', () => {
-  it('should render without crashing', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component).toBeTruthy();
-  });
-
-  it('should rendered heading and desription', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component.exists(select.title)).toEqual(true);
-    expect(component.exists(select.promoDescription)).toEqual(true);
-  });
-
-  it('should renderd props', () => {
-    const component = shallow(<HappyHourAd {...mockProps} />);
-    const renderedTitle = component.find('.title').text();
-    const renderPromoDescription = component.find('.promoDescription').text();
-
-    expect(renderedTitle).toEqual(mockProps.title);
-    expect(renderPromoDescription).toEqual(currentTime);
-  });
-});
 
 const trueDate = Date;
 
@@ -63,11 +39,6 @@ const checkDescriptionAtTime = (time, expectedDescription) => {
     global.Date = trueDate;
   });
 };
-
-beforeAll(() => {
-  const utilsModule = jest.requireActual('../../../utils/formatTime.js');
-  utilsModule.formatTime = jest.fn(seconds => seconds);
-});
 
 describe('Component HappyHourAd with mocked Date', () => {
   checkDescriptionAtTime('11:57:58', '122');
@@ -98,16 +69,4 @@ describe('Component HappyHourAd with mocked Date and delay', () => {
   checkDescriptionAfterTime('11:57:58', 2, '120');
   checkDescriptionAfterTime('11:59:59', 1, '1');
   checkDescriptionAfterTime('13:00:00', 60 * 60, 22 * 60 * 60 + '');
-});
-
-describe('Component HappyHourAd with text promoDescription', () => {
-  checkDescriptionAtTime('12:00:00', mockProps.promoDescription);
-  checkDescriptionAtTime('12:09:59', mockProps.promoDescription);
-  checkDescriptionAtTime('12:59:59', mockProps.promoDescription);
-});
-
-describe('Component HappyHourAd with text promoDescription when countdown is 0', () => {
-  checkDescriptionAfterTime('11:57:58', 2, '120');
-  checkDescriptionAfterTime('11:59:59', 1, mockProps.promoDescription);
-  checkDescriptionAfterTime('12:59:59', 1, '1');
 });
