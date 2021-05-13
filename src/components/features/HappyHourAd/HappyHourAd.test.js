@@ -10,10 +10,8 @@ const select = {
 
 const mockProps = {
   title: 'Happy Hour',
-  promoDescription: 'Lellum pollelum',
+  promoDescription: 'Promo Description',
 };
-
-const currentTime = Date.now();
 
 describe(' Component HappyHourAd', () => {
   it('should render without crashing', () => {
@@ -33,7 +31,7 @@ describe(' Component HappyHourAd', () => {
     const renderPromoDescription = component.find('.promoDescription').text();
 
     expect(renderedTitle).toEqual(mockProps.title);
-    expect(renderPromoDescription).toEqual(currentTime);
+    expect(renderPromoDescription).not.toBeFalsy();
   });
 });
 
@@ -96,7 +94,7 @@ const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
 
 describe('Component HappyHourAd with mocked Date and delay', () => {
   checkDescriptionAfterTime('11:57:58', 2, '120');
-  checkDescriptionAfterTime('11:59:59', 1, '1');
+  checkDescriptionAfterTime('11:59:59', 1, mockProps.promoDescription);
   checkDescriptionAfterTime('13:00:00', 60 * 60, 22 * 60 * 60 + '');
 });
 
@@ -109,5 +107,5 @@ describe('Component HappyHourAd with text promoDescription', () => {
 describe('Component HappyHourAd with text promoDescription when countdown is 0', () => {
   checkDescriptionAfterTime('11:57:58', 2, '120');
   checkDescriptionAfterTime('11:59:59', 1, mockProps.promoDescription);
-  checkDescriptionAfterTime('12:59:59', 1, '1');
+  checkDescriptionAfterTime('12:59:59', 1, 23 * 60 * 60 + '');
 });

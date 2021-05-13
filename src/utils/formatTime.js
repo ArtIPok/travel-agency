@@ -5,9 +5,9 @@ export const formatTime = (seconds) => {
 
   const time = hour.toString().padStart(2, '0') + ':' + minute.toString().padStart(2, '0') + ':' + second.toString().padStart(2, '0');
 
-  return (seconds) != null
+  return isNaN(seconds) || seconds < 0
     ?
-    time
-    : null;
+    null
+    : time;
 };
 
